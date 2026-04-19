@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>FlashBase - Documentação</title>
+  <style>
+    :root {
+      --bg-color: #0D0D0D; --surface: #1A1A1A; --text-main: #FFFFFF; --text-muted: #888888;
+      --accent: #00AEEF; --border: #333333;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background-color: var(--bg-color); color: var(--text-main); display: flex; height: 100vh; }
+    
+    /* Menu Lateral */
+    .sidebar { width: 260px; background-color: var(--surface); border-right: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; }
+    .sidebar h2 { margin-top: 0; font-size: 26px; font-weight: 800; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+    .nav-btn { background: none; border: none; color: var(--text-muted); text-align: left; padding: 14px 15px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; font-size: 15px; font-weight: 600; transition: 0.2s; }
+    .nav-btn:hover { background-color: rgba(0, 174, 239, 0.1); color: var(--accent); }
+    .nav-btn.active { background-color: rgba(0, 174, 239, 0.15); color: var(--accent); border-left: 4px solid var(--accent); }
+    
+    /* Área de Conteúdo */
+    .content { flex: 1; padding: 40px 80px; overflow-y: auto; }
+    .section { display: none; max-width: 850px; }
+    .section.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    h1 { margin-top: 0; color: var(--text-main); font-size: 30px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    h3 { color: var(--accent); margin-top: 35px; font-size: 20px; display: flex; align-items: center; gap: 8px; }
+    p, li { color: var(--text-muted); line-height: 1.7; font-size: 16px; }
+    
+    /* Caixas de Código e Destaque MAIORES e mais legíveis */
+    .code-box { background-color: #151f32; padding: 18px 22px; border-radius: 8px; border: 1px solid #2e405e; font-family: 'Consolas', monospace; color: #cbd5e1; font-size: 16px; line-height: 1.6; margin-top: 10px; }
+    .highlight { color: #38bdf8; font-weight: bold; }
+    
+    .contact-card { background-color: var(--surface); padding: 25px; border-radius: 8px; border-left: 4px solid #22c55e; margin-top: 25px; }
+    .contact-btn { display: inline-block; margin-top: 15px; padding: 12px 24px; background-color: #22c55e; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px; transition: 0.2s; }
+    .contact-btn:hover { background-color: #16a34a; }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>FlashBase</h2>
+    <button class="nav-btn active" data-target="como-usar">📖 Como Usar</button>
+    <button class="nav-btn" data-target="atalhos">⚡ Atalhos</button>
+    <button class="nav-btn" data-target="suporte">💬 Contato e Suporte</button>
+    <button class="nav-btn" data-target="licenca">🔑 Minha Licença</button>
+  </div>
+
+  <div class="content">
+    
+    <div id="como-usar" class="section active">
+      <h1>Manual da Ferramenta</h1>
+      <p>A extensão agiliza as suas buscas do dia a dia. Veja como o nosso sistema interpreta os comandos digitados:</p>
+      
+      <h3>📱 Samsung (Firmwares)</h3>
+      <p>Pesquise pelo <b>modelo técnico</b> do aparelho. A extensão abrirá automaticamente a página de download da firmware para a região <b>ZTO (Brasil)</b>.</p>
+      <div class="code-box">
+        Exemplo: Digite <span class="highlight">a145m</span> ou <span class="highlight">g998b</span>
+      </div>
+
+      <h3>🍏 Apple (Firmwares)</h3>
+      <p>Pesquise pelo <b>nome do aparelho</b> ou abreviações comuns. A extensão abrirá a página do IPSW para você baixar a iOS correspondente.</p>
+      <div class="code-box">
+        Exemplo: Digite <span class="highlight">11</span>, <span class="highlight">13pm</span> ou <span class="highlight">15promax</span>
+      </div>
+
+      <h3>🟠 Xiaomi (Firmwares)</h3>
+      <p>Pesquise pelo <b>codinome</b> do aparelho. A extensão abrirá a página de download da <b>ROM Global</b> (quando houver disponibilidade).</p>
+      <div class="code-box">
+        Exemplo: Digite <span class="highlight">spes</span> ou <span class="highlight">vayu</span>
+      </div>
+
+      <h3>🔍 Hardware (Test Point e ISP)</h3>
+      <p>Procurando pinouts ou TPs na placa? Use as palavras-chave <b>tp</b>, <b>test point</b> ou <b>isp</b> no final da sua pesquisa. A extensão fará uma busca inteligente e flexível, excelente para localizar vias de CPU (drill), pontos de EDL ou conexões de memória (eMMC/UFS) diretamente no Google Imagens.</p>
+      <div class="code-box">
+        Exemplo (Processador/Chipset): Digite <span class="highlight">sm6375 isp</span><br><br>
+        Exemplo (Sigla rápida): Digite <span class="highlight">a13 tp</span><br><br>
+        Exemplo (Nome completo): Digite <span class="highlight">a21s test point</span>
+      </div>
+    </div>
+
+    <div id="atalhos" class="section">
+      <h1>Atalhos de Teclado</h1>
+      <p>Otimize o seu tempo e abra a janela de busca sem precisar encostar no mouse.</p>
+      <div class="code-box" style="font-size: 22px; text-align: center; color: white; padding: 40px 20px;">
+        Windows: <span class="highlight">ALT + A</span><br><br>
+        Mac: <span class="highlight">Command + Shift + A</span>
+      </div>
+    </div>
+
+    <div id="suporte" class="section">
+      <h1>Suporte ao Técnico</h1>
+      <p>Dúvidas, problemas de acesso, renovação de licença ou sugestão para adicionar novos modelos ao banco de dados? Fale direto com o desenvolvedor.</p>
+      
+      <div class="contact-card">
+        <h3 style="margin-top: 0; color: white;">Suporte FlashBase</h3>
+        <p>Canal exclusivo para usuários da extensão.</p>
+        <a id="waSuporteLink" href="#" target="_blank" rel="noopener noreferrer" class="contact-btn">📱 Chamar no WhatsApp</a>
+      </div>
+    </div>
+
+    <div id="licenca" class="section">
+      <h1>Minha Licença</h1>
+      <p>Dados de registro e autorização desta máquina:</p>
+      <div class="code-box" style="font-size: 18px;">
+        <b>Técnico:</b> <span id="info-nome" style="color: white;">Carregando...</span><br><br>
+        <b>Assistência:</b> <span id="info-loja" style="color: white;">Carregando...</span><br><br>
+        <b>E-mail:</b> <span id="info-email" style="color: white;">Carregando...</span><br><br>
+        <b>Uso de Telas:</b> <span id="info-slots" class="highlight">Carregando...</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="extension-common.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
